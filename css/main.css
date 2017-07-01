@@ -10,3 +10,29 @@ h1 {
 #always_blue {
   color: blue
 }
+.zappy {
+  color: blue
+}
+
+.wow {
+  background: lime
+}
+ul li {
+  color: red
+}
+a:link {
+  color:red
+}
+a:hover {
+  color: purple
+}
+a:active {
+  color: blue
+}
+a:visited {
+  color: black
+}
+p:empty {
+  /*This link style can be used to say when a link is empty, useful for design stage?*/
+  color:red
+}
