@@ -36,3 +36,27 @@ p:empty {
   /*This link style can be used to say when a link is empty, useful for design stage?*/
   color:red
 }
+.first {
+  background-color: #503;
+  font-size: 16pt;
+  font-family: fantasy;
+  position: absolute;
+  top: 60px;
+  left: 60px;
+}
+.second {
+  background-color: #305;
+  font-size: 12pt;
+  font-family: sans-serif;
+  position: relative;
+  top: 20px;
+  left: 120px;
+}
+.third {
+  background-color: #ff0;
+  font-size: 18pt;
+  font-family: cursive;
+  position: relative;
+  top: -80px;
+  left: 60px;
+}
