@@ -10,9 +10,35 @@
     in a query form. The post mthed can handle any size data and could be
     used to post big files and large amounts of text etc. -->
     <form class="form_class" action="test.html" method="post">
-      <textarea name="feedback" rows="3" cols="60">
-      Please enter your text here</textarea>
+      <h3>Please enter your name</h3>
+      <label for="firstname">First (not family) name here</label><br>
+      <!-- name="" is used by the back end and it will set the value of a field
+      caled firstname to whatever the user has entered -->
+      <input type="text" name="firstname" placeholder="Enter your first name"><br>
+      <label for="familyname">Family name here</label><br>
+      <input type="text" name="familyname" placeholder="Enter your family name">
       <br>
+      <br>
+      <label for="items">Items</label><br>
+      <input type="checkbox" name="items" value="car">Car <br>
+      <input type="checkbox" name="items" value="teddy bear">Teddy<br>
+      <input type="checkbox" name="items" value="toothbrush">Toothbrush<br>
+      <hr>
+      <label for="iq">IQ</label><br>
+      <input type="radio" name="iq" value="high">High<br>
+      <input type="radio" name="iq" value="medium" checked>Medium<br>
+      <input type="radio" name="iq" value="low">Low<br>
+      <select name="cities">
+        <option value="hk">Hong Kong</option>
+        <option value="vc">Vancouver</option>
+        <option value="sf">San Francisco</option>
+      </select>
+      <p>Please enter the secret password</p>
+        <!-- Be aware that the get method is plain text,
+        for passwords you must use the post method or there'll be
+        no encryption. -->
+      <input type="password" name="userpassword" required autofocus><br>
+      <hr>
       <input type="submit" name="Button" value="Send">
     </form>
   </body>
