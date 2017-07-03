@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>File Handling</title>
+  </head>
+  <body>
+    <section>
+      <a href="index.html">main</a>
+      <!-- This type gives the user the ability to upload a file to a server,
+      remember it should be "post" method. enctype is essential if you want to ensure the
+      server knows you want to attach a file(s) to the message you are
+      sending-->
+      <form action="index.html" method="post" enctype="multipart/form-data">
+        <!-- This gives the form the file upoad selector -->
+        <input type="file" name="fileToUpload"><br>
+        <input type="button" name="" value="Click to upload">
+        <hr>
+    </section>
+      <section>
+        <p>This section is to demo different input selectors.</p>
+        <!-- Nmber selector example -->
+        <label for="age">Your Age: </label><br>
+        <input type="number" min="0" max="199" step="1" value="18" name="age" required><br><br>
+        <label for="birthday">Your Birthday: </label><br>
+        <input type="date" name="birthday"><br><br>
+        <label for="wakeup">The time to rise</label>
+        <input type="time" name="wakeup"><br><br>
+        <label for="color">Pick a color: </label><br>
+        <input type="color" name="color"><br><br>
+        <label for="mood">Your Mood: </label><br>
+        Bad <input type="range" min="0" max="100" step="5" name="mood" value="50">Good <br><br>
+        <input type="button" name="submit" value="Submit">
+      </section>
+    </form>
+  </body>
+</html>
