@@ -3,24 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Dating page assignment</title>
+    <style media="screen">
+      .yellow {border:10px solid yellow; background-color: lightyellow; margin-bottom: 10px; width: 720px;}
+      label {width: 180px; text-align: right; vertical-align: top;}
+      .radCheck {width: auto;}
+      .rangeForm {text-align: center;}
+      textarea {width: 360px; height: 50px;}
+      .brown {text-align: center;background-color: brown; color: white;}
+      .purple {text-align: center;background-color: purple;  color: white}
+    </style>
   </head>
   <body>
     <div>
       <h1>Please Enter Your Details For Our Dating Website!</h1>
       <section>
         <form action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method="post" enctype="multipart/form-data">
-          <fieldset>
+          <fieldset class="yellow">
             <legend>Your Face</legend>
             <label for="fileChoose">Your image:</label>
             <input type="file" name="fileChoose" placeholder="No file chosen" required><br>
             <label for="imagePreview">Image preview:</label><br>
             <img src="" id="preview" alt="">
           </fieldset>
-          <fieldset>
+          <fieldset class="yellow">
             <legend>Your General Details</legend>
             <label for="name">Name:</label>
             <input type="text" name="name" placeholder="Your full name" required><br>
-            <label for="gender">Gender:</label>
+            <label for="gender" class="radCheck">Gender:</label>
             <input type="radio" name="gender" value="M" required>Male
             <input type="radio" name="gender" value="F" required>Female <br>
             <label for="age">Age</label>
@@ -39,14 +48,16 @@
               <option value="Portugal">Portugal</option>
             </select>
           </fieldset>
-          <fieldset>
+          <fieldset class="yellow">
             <legend>Your Indicators</legend>
+            <section class="rangeForm">
             <label for="height">Height: </label>
-            Short <input type="range" min="0" max="100" step="5" name="height" value="50">Tall<br>
+              <span class="brown">Short</span> <input type="range" min="0" max="100" step="5" name="height" value="50"><span class="purple">Tall</span><br>
             <label for="salary">Salary: </label>
-            Poor<input type="range" min="0" max="100" step="5" name="salary" value="50">Rich<br>
+              <span class="brown">Poor</span><input type="range" min="0" max="100" step="5" name="salary" value="50"><span class="purple">Rich</span>
+            </section>
           </fieldset>
-          <fieldset>
+          <fieldset class="yellow">
             <legend>Your Contact Information</legend>
             <label for="email">Email:</label>
             <input type="email" name="email" value="" required><br>
@@ -54,7 +65,7 @@
             <input type="tel" name="tel" value=""><br>
             <label for="address">Address: </label>
             <textarea name="address" rows="3" cols="20"></textarea><br>
-            <label for="contact">Method to contact you: </label>
+            <label for="contact" class="radCheck">Method to contact you: </label>
             <input type="checkbox" name="contact" value="email">Email
             <input type="checkbox" name="contact" value="whatspp">Whatsapp
             <input type="checkbox" name="contact" value="in-app">In-app chat
