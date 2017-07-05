@@ -159,9 +159,65 @@
 //animal.
 
 // While loops
-var seven = 0;
+// var seven = 0;
+//
+// while (seven < 16) {
+//   seven ++;
+//   document.write(" Counting up \n\n" + seven);
+// };
+// var text = "The cat's hat was wet.";
+// result = text.indexOf("we");
+// document.write(result);
+//
+// var response, finished;
+// finished = false;
+// alert("Graham is a great name.");
+// while (!finished){
+//   response=prompt("Do you agree?");
+//   if (response.indexOf("y")==0)
+//   finished=true;
+// }
 
-while (seven < 16) {
-  seven ++;
-  document.write(" Counting up \n\n" + seven);
-};
+// var response, finished;
+// finished = false;
+// alert("Graham is a lush name.");
+// do {
+//   response=prompt("Do you agree?");
+//   if (response.indexOf("y")==0)
+//       finished = true;
+// } while (!finished);
+
+// function show_money() {
+//     //var money = 2; //uncomment to see the difference between local and global
+//     //functions
+//     alert("In the function, the value is: "+ money);
+// }
+// var money = 99
+// alert("In the main part, the value is: "+ money);
+// show_money();
+// alert("In the main part, the value is: "+ money);
+//
+// function show_money() {
+//     money = 2; //because this has not been declared (var money = 2) this
+//     //becomes a global variable and can be used in global Statements
+//     alert("In the function, the value is: "+ money);
+// }
+// //var money = 99
+// // alert("In the main part, the value is: "+ money);
+// show_money();
+// alert("In the main part, the value is: "+ money);
+
+//Logical operators
+
+// && - Logical AND both inputs are true
+// || - Logical OR either input is true
+// ! = Logical NOT input is false
+var you_are_rich = false;
+var you_have_partner = true;
+var you_have_flat = true;
+var life_is_fantastic = you_are_rich && you_have_partner && you_have_flat;
+alert("life is fantastic is " + life_is_fantastic);
+you_are_rich = true;
+
+life_is_fantastic = you_are_rich && you_have_partner && you_have_flat;
+alert("life is fantastic is " + life_is_fantastic);
