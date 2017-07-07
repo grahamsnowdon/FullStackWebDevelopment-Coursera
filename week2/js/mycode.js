@@ -212,12 +212,69 @@
 // && - Logical AND both inputs are true
 // || - Logical OR either input is true
 // ! = Logical NOT input is false
-var you_are_rich = false;
-var you_have_partner = true;
-var you_have_flat = true;
-var life_is_fantastic = you_are_rich && you_have_partner && you_have_flat;
-alert("life is fantastic is " + life_is_fantastic);
-you_are_rich = true;
+// var you_are_rich = false;
+// var you_have_partner = true;
+// var you_have_flat = true;
+// var life_is_fantastic = you_are_rich && you_have_partner && you_have_flat;
+// alert("life is fantastic is " + life_is_fantastic);
+// you_are_rich = true;
+//
+// life_is_fantastic = you_are_rich && you_have_partner && you_have_flat;
+// alert("life is fantastic is " + life_is_fantastic);
 
-life_is_fantastic = you_are_rich && you_have_partner && you_have_flat;
-alert("life is fantastic is " + life_is_fantastic);
+//Boolean in functions
+//
+// function first_function() {
+//   alert("first_function() is running!")
+//   return true;
+// }
+// function second_function() {
+//   alert("second_function() is running!")
+//   return false;
+// }
+// //The following will rung both functions as the first one is
+// // True
+// var test_function =
+// first_function() && second_function();
+//
+// function first_function() {
+//   alert("first_function() is running!")
+//   return true;
+// }
+// function second_function() {
+//   alert("second_function() is running!")
+//   return false;
+// }
+// //The following will run just second function and then stop
+// // Because the second function is falseTrue
+// var test_function =
+// second_function() && first_function();
+
+// var you_are_rich = false;
+// var you_have_partner = true;
+// var you_have_flat = false;
+// var life_is_good = you_are_rich || you_have_partner || you_have_flat;
+// alert("life is good " + life_is_good);
+// you_have_partner = false;
+// var life_is_good = you_are_rich || you_have_partner || you_have_flat;
+// alert("life is good " + life_is_good);
+//
+// function first_function() {
+//   alert("first_function() is running!")
+//   return true;
+// }
+// function second_function() {
+//   alert("second_function() is running!")
+//   return false;
+// }
+// //The following will run just second function and then stop
+// // Because the second function is falseTrue
+// var test_function =
+// second_function() || first_function();
+
+//This is clever and could easily be used in form data as if the male value
+//changes then the female value automatically changes as well.
+var you_are_male = true;
+var you_are_female = !you_are_male;
+alert("You are male is: " + you_are_male);
+alert("You are female is: " + you_are_female);
