@@ -274,7 +274,95 @@
 
 //This is clever and could easily be used in form data as if the male value
 //changes then the female value automatically changes as well.
-var you_are_male = true;
-var you_are_female = !you_are_male;
-alert("You are male is: " + you_are_male);
-alert("You are female is: " + you_are_female);
+// var you_are_male = true;
+// var you_are_female = !you_are_male;
+// alert("You are male is: " + you_are_male);
+// alert("You are female is: " + you_are_female);
+
+//Arrays
+//
+// var pets = ["Dog", "Cat", "Hamster"];
+// alert(pets.join(" and "));
+// //var pets = new Array(10);
+// pets[2] = "Rabbit"
+// alert(pets.join());
+// alert(pets.length); //This shows 3
+// pets.push("Hamster");
+// pets.unshift("Wolf");
+// alert(pets.join(" and "));
+// result = pets.pop();
+// alert(pets.join(" and "));
+// alert("The last item removed from array was " + result)
+// var pets = ["Dog", "Cat", "Hamster"];
+// var result = pets.shift();
+// alert(pets.join(" and "));
+// alert("The last item removed from array was " + result)
+// var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
+// var primes = [2,3,5,7,11]
+// var result = pets.concat(primes);
+// alert(result);
+// position = pets.indexOf(result);
+// while (position < result.length) {
+//   alert(position);
+//   position++;
+// };
+
+//Generating random numbers
+// var max_value = 50;
+// var random_num = Math.random() * max_value;
+// random_num = Math.floor(random_num);
+// alert("Random number inthe range 0 to " + "49\n" + ( random_num + 1));
+//The above shows random numbers in the range 1 - 50 (because of the +1 on result)
+var target;
+var guess_input_text;
+var guess_input;
+var finished = false;
+var guesses = 0;
+
+function do_game() {
+  var random_number = Math.random() * 100;
+  var random_number_integer = Math.floor(random_number);
+  target = random_number_integer + 1;
+
+  while (!finished) {
+    guess_input_text = prompt("I am thinking of a number " +
+                              "in the range 1 to 100.\n\n" +
+                              "What is the number?");
+    guess_input = parseInt(guess_input_text);
+    guesses += 1;
+    finished = check_guess();
+  }
+}
+
+function check_guess() {
+  //checks it's a number
+  if (guess_input_text == 'q'){
+    alert("Quitting game");
+    return true;
+  }
+  if (isNaN(guess_input)) {
+    alert("You have not entered a number.\n\n" +
+          "Please enter a number in the range 1 to 100.");
+          return false;
+  }
+  //Checks number in range
+  if ((guess_input < 1) || (guess_input > 100)) {
+    alert("Please enter a number in the range 1 to 100.");
+          return false;
+  }
+  //If guess is higher than target
+  if (guess_input > target) {
+    alert("Your number was too large.");
+    return false;
+  }
+  //If guess is lower than target
+  if (guess_input < target) {
+    alert("Your number was too small.");
+    return false;
+  }
+  //Win state
+  alert("You got it! The number was " + target +
+        ".\n\nIt took you " + guesses +
+      " guesses got the number!");
+    return true;
+}
