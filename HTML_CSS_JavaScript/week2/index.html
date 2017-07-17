@@ -3,9 +3,90 @@
   <head>
     <meta charset="utf-8">
     <title>JavaScript Week 2</title>
-    <script src="js/mycode.js" type="text/javascript">
+    <!--<script src="js/mycode.js" type="text/javascript">-->
+    <script>
+    // TODO:
+    // Background to same colour as guess
+    // Change numbers to colours
+    // Pick random colour from a list
+    //
+    //
+      function ting() {
+        // var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
+        // var primes = [1,2,3,4,5]
+        // var result = pets.concat(primes);
+        // alert(result);
+        // position = pets.indexOf(result);
+        // while (position < result.length) {
+        //   alert(position);
+        //   position++;
+        var stuff = ["Dog", "Cat", "Rabbit", "Hamster"];
+        var response, finished;
+        finished = false;
+        alert("Guess the animal.");
+          do {
+            response=prompt("Animal?");
+            if (response.indexOf(stuff)==0)
+                finished = true;
+          } while (!finished);
+    }
+    //
+    // var target;
+    // var guess_input_text;
+    // var guess_input;
+    // var finished = false;
+    // var guesses = 0;
+    //
+    // function do_game() {
+    //   var random_number = Math.random() * 100;
+    //   var random_number_integer = Math.floor(random_number);
+    //   target = random_number_integer + 1;
+    //
+    //   while (!finished) {
+    //     guess_input_text = prompt("I am thinking of a number " +
+    //                               "in the range 1 to 100.\n\n" +
+    //                               "What is the number?");
+    //     guess_input = parseInt(guess_input_text);
+    //     guesses += 1;
+    //     finished = check_guess();
+    //   }
+    // }
+    //
+    // function check_guess() {
+    //   //checks it's a number
+    //   if (guess_input_text == 'q'){
+    //     alert("Quitting game");
+    //     return true;
+    //   }
+    //   if (isNaN(guess_input)) {
+    //     alert("You have not entered a number.\n\n" +
+    //           "Please enter a number in the range 1 to 100.");
+    //           return false;
+    //   }
+    //   //Checks number in range
+    //   if ((guess_input < 1) || (guess_input > 100)) {
+    //     alert("Please enter a number in the range 1 to 100.");
+    //           return false;
+    //   }
+    //   //If guess is higher than target
+    //   if (guess_input > target) {
+    //     alert("Your number was too large.");
+    //     return false;
+    //   }
+    //   //If guess is lower than target
+    //   if (guess_input < target) {
+    //     alert("Your number was too small.");
+    //     return false;
+    //   }
+    //   //Win state
+    //   alert("You got it! The number was " + target +
+    //         ".\n\nIt took you " + guesses +
+    //       " guesses got the number!");
+    //     return true;
+    // }
+
     </script>
   </head>
-  <body onload=do_game();>
+  <body onload=ting();>
   </body>
 </html>

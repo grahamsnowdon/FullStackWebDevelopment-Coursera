@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Week 2</title>
+    <!--<script src="js/mycode.js" type="text/javascript">-->
+    <script>
+
+// The following function creates a random number to be used in the main game play
+    function randNum() {
+      var random_number = Math.random() * 7;
+      var random_number_integer = Math.floor(random_number);
+      target_index = random_number_integer - 1;
+      if (target_index < 1) {
+        target_index = 0;
+        return target_index;
+      }
+      else {
+        return target_index;
+      }
+    }
+// This is the main game play loop
+    function do_game() {
+      //six colors from w3Schools
+      var colors = ["AntiqueWhite", "Black", "Ivory", "Navy", "Purple", "WhiteSmoke"];
+      // grabbing a random number
+      i = randNum();
+      //alert("Comp num = " + i); //Just for testing the game
+      var target = colors[i];
+      alert("The comp color is: " + target); //Just for testing the game
+      //promt the user for their choice
+      finished = false;
+      guesses = 0;
+      while (!finished) {
+        guess_input = prompt("I am thinking of one of these colors:\n\n" + colors.join(", ") + "\n\n" +
+              "What color am I thinking of?");
+        finished = check_guess(guess_input, guesses, colors, target);
+      }
+    }
+    function check_guess(arg, arg2, arg3, arg4) {
+      //Checks they've answered with a color.
+        while (arg != arg4){
+          for (var i = 0; i < arg3.length; i++) {
+            if (arg3[i] !arg){
+              alert("Sorry. I don't recognize your color.\n\nPlease try again.")
+            }
+          }
+
+        }
+        //If guess is higher than target
+        if (arg > arg4) {
+          alert("Sorry, your guess is not correct!\n\n Hint: your color is alphabetically higher than mine. \n\n Please try again.");
+          guesses ++;
+          return false;
+        }
+        //If guess is lower than target
+        else if (arg < arg4) {
+          alert("Sorry, your guess is not correct!\n\n Hint: your color is alphabetically lower than mine. \n\n Please try again.");
+          guesses ++;
+          return false;
+        }
+        else if (arg == arg4) {
+          //Win state
+          alert("Congratulations! You guessed the color! \n\nIt took you " + arg2 +
+                " guesses to finish the game!\n\n You can see the color in the background." );
+          myBody=document.getElementsByTagName("body")[0];
+          myBody.style.background=arg4;
+          return true;
+        }
+        else {
+        alert("Sorry, I don't recognise your color. \n\n please try again");
+        guesses += 1;
+        return false;
+      }
+    }
+
+    </script>
+  </head>
+  <body onload=do_game();>
+  </body>
+</html>
