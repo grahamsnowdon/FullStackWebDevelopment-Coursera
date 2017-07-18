@@ -4,9 +4,6 @@
     <meta charset="utf-8">
     <title>JavaScript Week 2</title>
     <!--<script src="js/mycode.js" type="text/javascript">-->
-
-  </head>
-  <body onload=do_game();>
     <script>
 //This function creates a random number to be used in the main game play
     function randNum() {
@@ -22,7 +19,8 @@
       }
     }
 //This is the main game play loop
-    function do_game(count) {
+    function do_game() {
+      var count = 1;
       //six colors from w3Schools list
       var colors = ["AntiqueWhite", "Black", "Ivory", "Navy", "Purple", "WhiteSmoke"];
       // grabbing a random number from the above function
@@ -41,7 +39,7 @@
         guess_input = prompt("I am thinking of one of these colors:\n\n" + colors.join(", ") + "\n\n" +
               "What color am I thinking of?");
         //Send the guess to be checked
-        finished = check_guess(guess_input, colors, target);
+        finished = check_guess(guess_input, colors, count, target);
       }
     }
     //This function checks they've answered with a color in the array. Returns bool.
@@ -57,16 +55,35 @@
       }
     }
 
-    function check_guess(cgArg1, cgArg2, cgArg4) {
+    function check_guess(cgArg1, cgArg2, count, cgArg4) {
       //Checks if answer is in the array of colors
       exists = inArray(cgArg1, cgArg2);
       //if not in array of colors then message to player to try again. No guess increment as might just be typo.
       if (exists == false){
-        alert("Sorry, that's not the color \n\n please try again");
+        alert("Sorry, I don't recognise your color. \n\n please try again");
         return false;
+          }
+        //If guess is higher than target, increments guess and displays higher than message
+        else if (exists == true && cgArg1 > cgArg4) {
+            alert("Sorry, your guess is not correct!\n\n Hint: your color is alphabetically higher than mine. \n\n Please try again.");
+            count++;
+            return false;
+          }
+        //If guess is lower than target, increments guess and displays lower than message
+        else if (exists == true && cgArg1 < cgArg4) {
+            alert("Sorry, your guess is not correct!\n\n Hint: your color is alphabetically lower than mine. \n\n Please try again.");
+            count++;
+            return false;
           }
         //Win state changes background color to target, increments guess and displays win message
         else if (exists == true && cgArg1 == cgArg4){
+          count++;
+          myBody=document.getElementsByTagName("body")[0];
+          myBody.style.background=cgArg4;
+          //Tried alsorts to get the document body state to change before the alert message, might have to
+          //take the hit on that one and submit anyway. All other features of the game are working.
+          //document.onreadystatechange = function winMessage(count) {
+          //  if (document.readyState == 'loaded' || document.readyState == 'complete') {
               alert("Congratulations! You guessed the color! \n\nIt took you " + count +
                     " guess to finish the game!\n\n You can see the color in the background." );
             //}
@@ -75,5 +92,8 @@
           }
         }
     </script>
+  </head>
+  <body onload=do_game();>
+
   </body>
 </html>

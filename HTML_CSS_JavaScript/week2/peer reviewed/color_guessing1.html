@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<head>
+<body onload="play_game()">
+<script>
+var colorList = ["blue", "gold", "green", "gray", "ivory", "lime", "magenta", "orange", "pink", "red", "salmon"];
+var guesses = 0;
+var success = false;
+
+function play_game()
+{
+	var color = colorList[Math.floor((Math.random() * colorList.length))];
+	var color_index = colorList.toString().toUpperCase().indexOf(color.toUpperCase());
+	alert("Chosen color is: " + color);
+	while (!success)
+	{
+	  var guess = prompt("Please guess the chosen color among the following list: \n\n" + colorList);
+	  guesses++;
+	  if (colorList.toString().toUpperCase().search(guess.toUpperCase()) == -1)
+	  {
+	    alert("The color is not in the list.");
+		continue;
+	  }
+	  var guess_index = colorList.toString().toUpperCase().indexOf(guess.toUpperCase());
+	  if ((color_index) == (guess_index))
+	  {
+	    success = true;
+	  }
+	  else
+	  {
+		alert("Sorry, your guess is not correct! \nPlease try again.");
+	  }
+	}
+}
+
+</script>
+</body>
+</head>
+
+
+</html>
