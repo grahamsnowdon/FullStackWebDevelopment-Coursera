@@ -5,88 +5,95 @@
     <title>JavaScript Week 2</title>
     <!--<script src="js/mycode.js" type="text/javascript">-->
     <script>
-    // TODO:
-    // Background to same colour as guess
-    // Change numbers to colours
-    // Pick random colour from a list
-    //
-    //
-      function ting() {
-        // var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
-        // var primes = [1,2,3,4,5]
-        // var result = pets.concat(primes);
-        // alert(result);
-        // position = pets.indexOf(result);
-        // while (position < result.length) {
-        //   alert(position);
-        //   position++;
-        var stuff = ["Dog", "Cat", "Rabbit", "Hamster"];
-        var response, finished;
-        finished = false;
-        alert("Guess the animal.");
-          do {
-            response=prompt("Animal?");
-            if (response.indexOf(stuff)==0)
-                finished = true;
-          } while (!finished);
+//This function creates a random number to be used in the main game play
+    function randNum() {
+      var random_number = Math.random() * 7;
+      var random_number_integer = Math.floor(random_number);
+      target_index = random_number_integer - 1;
+      if (target_index < 1) {
+        target_index = 0;
+        return target_index;
+      }
+      else {
+        return target_index;
+      }
     }
-    //
-    // var target;
-    // var guess_input_text;
-    // var guess_input;
-    // var finished = false;
-    // var guesses = 0;
-    //
-    // function do_game() {
-    //   var random_number = Math.random() * 100;
-    //   var random_number_integer = Math.floor(random_number);
-    //   target = random_number_integer + 1;
-    //
-    //   while (!finished) {
-    //     guess_input_text = prompt("I am thinking of a number " +
-    //                               "in the range 1 to 100.\n\n" +
-    //                               "What is the number?");
-    //     guess_input = parseInt(guess_input_text);
-    //     guesses += 1;
-    //     finished = check_guess();
-    //   }
-    // }
-    //
-    // function check_guess() {
-    //   //checks it's a number
-    //   if (guess_input_text == 'q'){
-    //     alert("Quitting game");
-    //     return true;
-    //   }
-    //   if (isNaN(guess_input)) {
-    //     alert("You have not entered a number.\n\n" +
-    //           "Please enter a number in the range 1 to 100.");
-    //           return false;
-    //   }
-    //   //Checks number in range
-    //   if ((guess_input < 1) || (guess_input > 100)) {
-    //     alert("Please enter a number in the range 1 to 100.");
-    //           return false;
-    //   }
-    //   //If guess is higher than target
-    //   if (guess_input > target) {
-    //     alert("Your number was too large.");
-    //     return false;
-    //   }
-    //   //If guess is lower than target
-    //   if (guess_input < target) {
-    //     alert("Your number was too small.");
-    //     return false;
-    //   }
-    //   //Win state
-    //   alert("You got it! The number was " + target +
-    //         ".\n\nIt took you " + guesses +
-    //       " guesses got the number!");
-    //     return true;
-    // }
+//This is the main game play loop
+    function do_game() {
+      var count = 1;
+      //six colors from w3Schools list
+      var colors = ["AntiqueWhite", "Black", "Ivory", "Navy", "Purple", "WhiteSmoke"];
+      // grabbing a random number from the above function
+      i = randNum();
+      //Declare the variable to use as the target color
+      var target = colors[i];
+      //*****Uncomment the next line for testing of the game*****
+      //alert("The random color is: " + target);
 
+      // declare a couple of variables to handle game state and how may count the player has had
+      var finished = false;
+
+      //gameplay loop
+      while (!finished) {
+        //promt the user for their choice
+        guess_input = prompt("I am thinking of one of these colors:\n\n" + colors.join(", ") + "\n\n" +
+              "What color am I thinking of?");
+        //Send the guess to be checked
+        finished = check_guess(guess_input, colors, count, target);
+      }
+    }
+    //This function checks they've answered with a color in the array. Returns bool.
+    function inArray(iaArg1, iaArg2) {
+      //There must be a better way using a for loop to iterate through each array item and check but
+      //after 6 hours on this I'm completely stuck so have used a load of OR conditions in the if statement
+      //to make this work. Bit of bad practise, I'll come back to this after more experience of looping thorugh arrays
+      if (iaArg1 == iaArg2[0] || iaArg1 == iaArg2[1] || iaArg1 == iaArg2[2] || iaArg1 == iaArg2[3] || iaArg1 == iaArg2[4] || iaArg1 == iaArg2[5]) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
+
+    function check_guess(cgArg1, cgArg2, count, cgArg4) {
+      //Checks if answer is in the array of colors
+      exists = inArray(cgArg1, cgArg2);
+      //if not in array of colors then message to player to try again. No guess increment as might just be typo.
+      if (exists == false){
+        alert("Sorry, I don't recognise your color. \n\n please try again");
+        return false;
+          }
+        //If guess is higher than target, increments guess and displays higher than message
+        else if (exists == true && cgArg1 > cgArg4) {
+            alert("Sorry, your guess is not correct!\n\n Hint: your color is alphabetically higher than mine. \n\n Please try again.");
+            count++;
+            return false;
+          }
+        //If guess is lower than target, increments guess and displays lower than message
+        else if (exists == true && cgArg1 < cgArg4) {
+            alert("Sorry, your guess is not correct!\n\n Hint: your color is alphabetically lower than mine. \n\n Please try again.");
+            count++;
+            return false;
+          }
+        //Win state changes background color to target, increments guess and displays win message
+        else if (exists == true && cgArg1 == cgArg4){
+          count++;
+          myBody=document.getElementsByTagName("body")[0];
+          myBody.style.background=cgArg4;
+          //Tried alsorts to get the document body state to change before the alert message, might have to
+          //take the hit on that one and submit anyway. All other features of the game are working.
+          //document.onreadystatechange = function winMessage(count) {
+          //  if (document.readyState == 'loaded' || document.readyState == 'complete') {
+              alert("Congratulations! You guessed the color! \n\nIt took you " + count +
+                    " guess to finish the game!\n\n You can see the color in the background." );
+            //}
+          //}
+          return true;
+          }
+        }
     </script>
   </head>
-  <body onload=ting();>
+  <body onload=do_game();>
+
   </body>
 </html>
