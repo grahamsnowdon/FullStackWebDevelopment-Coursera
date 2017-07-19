@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Loop Breaks</title>
+  </head>
+  <body>
+    <script>
+      // var total_amount=0;
+      // while (true) {
+      //   this_amount=prompt("How much in this account?");
+      //   this_amount=parseFloat(this_amount);
+      //   if (this_amount>0) {
+      //     total_amount+=this_amount;
+      //   }
+      //   else
+      //     break;
+      //   }
+      //   alert("Your total savings: " + total_amount);
+      var year, great_years = [];
+      for (year = 2014; year <= 2016; year++) {
+        correct=confirm(year + " was great for you?")
+        if (!correct) continue;
+        great_years.push(year)
+      }
+      alert("Your great years were: " + great_years);
+    </script>
+  </body>
+</html>
