@@ -49,11 +49,41 @@
       // alert("The new array is: " + pets);
       // alert("The spliced value is: " + result);
 
-      //*************SPLICE3
-      var pets=["Dog", "Cat", "Hamster"];
-      pets.forEach(alert);
+      //*************forEach
+      // var pets=["Dog", "Cat", "Hamster"];
+      // pets.forEach(alert);
 
-      
+      //*************forEach function, think of it this way.
+      // function forEach(theArray, fn) {
+      //   for (var i = 0; i < theArray.length; i++) {
+      //     fn(theArray[i], i, theArray);
+      //   }
+      // }
+      //function yourFunction(element,  index, array) {}
+
+      // var numbers = [1,2,3,4,5];
+      // numbers.forEach( function(elem, idx, arr) {
+      //   arr[idx] = elem * elem;
+      // });
+      // alert(numbers); //This shows [1,4,9,16,25]
+      //*************forEach function, think of it this way.
+
+      //************* map (this method uses whtever function is sent to it
+      // and applies it to a data structure with out effecting the original data structure.)
+      // function map(theArray, fn) {
+      //   var results = [];
+      //   for (var i = 0; i < theArray.length; i++) {
+      //     results.push(fn(theArray[i], i, theArray));
+      //   }
+      //   return results;
+      // }
+
+      // Map in uses
+      var square = function(el) { return el * el; }
+      var numbers = [1,2,3,4,5];
+      var results = numbers.map(square);
+      alert(results); //This shows [1,4, 9,16,25]
+
     </script>
   </body>
 </html>
